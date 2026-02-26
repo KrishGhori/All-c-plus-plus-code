@@ -2,25 +2,54 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    int choice;
+    cout << "1. Decimal to Binary\n";
+    cout << "2. Binary to Decimal\n";
+    cout << "Enter choice: ";
+    cin >> choice;
 
-    int binary[32];
-    int i = 0;
+    // ---------------- DECIMAL TO BINARY ----------------
+    if (choice == 1) {
+        int n;
+        cin >> n;
 
-    while (n > 0) {
-        binary[i] = n & 1;
-        n = n >> 1;
-        i++;
+        int bin[32];
+        int i = 0;
+
+        while (n > 0) {
+            bin[i] = n & 1;
+            n = n >> 1;
+            i++;
+        }
+
+        cout << "Binary equivalent is: ";
+        for (int j = i - 1; j >= 0; j--) {
+            cout << bin[j];
+        }
+        cout << endl;
     }
 
-    
+    // ---------------- BINARY TO DECIMAL ----------------
+    else if (choice == 2) {
+        int binaryNum;
+        cin >> binaryNum;
 
-    cout << "Binary equivalent is: ";
-    for (int j = i - 1; j >= 0; j--) {
-        cout << binary[j];
+        int ans = 0;
+        int pow = 1;
+
+        while (binaryNum != 0) {
+            int digit = binaryNum % 10;
+            ans = ans + (digit * pow);
+            pow *= 2;
+            binaryNum /= 10;
+        }
+
+        cout << "Decimal equivalent is: " << ans << endl;
     }
-    cout << endl;
+
+    else {
+        cout << "Invalid choice!" << endl;
+    }
 
     return 0;
 }
