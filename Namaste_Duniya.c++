@@ -16,7 +16,9 @@ int main(){
    
     cout << (a<=b) << endl ;
 
-    
+    int n , o ;
+    cin>> n >> o;
+    cout << n << endl << o ;
     
    
 }
